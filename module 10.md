@@ -10,11 +10,36 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node{
+    float data; 
+    struct Node *next;
+}*head;
 
+void search(float data)
+{
+    struct Node *current=head;
+    int count=1;
+    int flag=0;
+    while(current!=NULL)
+    {
+        if(current->data==data)
+        {
+            printf("item %.2f found at location %d",current->data,count);
+            flag++;
+        }
+        count++;
+        current=current->next;
+    }
+    if(flag==0)
+    {
+        printf("Item not found");
+    }
+}
+```
 Output:
 
-//paste your output here
+<img width="840" height="473" alt="image" src="https://github.com/user-attachments/assets/e3afdd60-be88-4406-9208-7de304d4082f" />
 
 
 
@@ -34,11 +59,29 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node
+{
+    int data;
+    struct Node *prev;
+    struct Node *next;
+}*head;
+
+void display()
+{
+    struct Node *temp=head;
+    while(temp!=NULL)
+    {
+        printf("%d\n",temp->data);
+        temp=temp->next;
+    }
+}
+```
 
 Output:
 
-//paste your output here
+<img width="456" height="602" alt="image" src="https://github.com/user-attachments/assets/b244a043-1258-4035-adb1-d3b6db6360f3" />
+
 
  
 Result:
@@ -58,11 +101,29 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node
+{
+    int data;
+    struct Node *prev;
+    struct Node *next;
+}*head;
+
+void display()
+{
+    struct Node *temp=head;
+    while(temp!=NULL)
+    {
+        printf("%d\n",temp->data);
+        temp=temp->next;
+    }
+}
+```
 
 Output:
 
-//paste your output here
+<img width="456" height="602" alt="image" src="https://github.com/user-attachments/assets/41c5cd1c-9db4-4a6b-9c6d-33c53722befa" />
+
 
 
 Result:
@@ -83,12 +144,41 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node{
+    char data; 
+    struct Node *next;
+}*head;
+
+
+void insert(char data)
+{
+    struct Node *nnode;
+    nnode=(struct Node *)malloc(sizeof(struct Node));
+    nnode->data=data;
+    nnode->next=NULL;
+    
+    struct Node *current=head;
+    if(head==NULL)
+    {
+        head=nnode;
+    }
+    else
+    {
+        while(current->next!=NULL)
+        {
+            current=current->next;
+        }
+        current->next=nnode;
+    }
+    
+    
+}
+```
 
 Output:
 
-//paste your output here
-
+<img width="482" height="577" alt="image" src="https://github.com/user-attachments/assets/e8a288ba-0b00-4ebb-b818-a5d44eba3016" />
 
 Result:
 Thus, the program to insert an element in doubly linked list is verified successfully.
@@ -125,11 +215,31 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 Program:
 
-//type your code here
+```
+struct Node{
+    int data; 
+    struct Node *prev;
+    struct Node *next;
+}*head;
+void delete()
+{
+    if(head!=0)
+    {
+        printf("node deleted\n");
+        head=head->next;
+    }
+    else
+    {
+        printf("UNDERFLOW\n");
+    }
+}
+
+```
 
 Output:
 
-//paste your output here
+<img width="590" height="792" alt="image" src="https://github.com/user-attachments/assets/e3036904-9744-4d58-9c04-0e039b3376fd" />
+
 
 
 
