@@ -16,15 +16,41 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
 
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    if (n >= 71 && n <= 79) {
+        switch (n) {
+            case 71: printf("seventy one\n"); break;
+            case 72: printf("seventy two\n"); break;
+            case 73: printf("seventy three\n"); break;
+            case 74: printf("seventy four\n"); break;
+            case 75: printf("seventy five\n"); break;
+            case 76: printf("seventy six\n"); break;
+            case 77: printf("seventy seven\n"); break;
+            case 78: printf("seventy eight\n"); break;
+            case 79: printf("seventy nine\n"); break;
+        }
+    } 
+    else if (n > 79) {
+        printf("Greater than 79\n");
+    }
+
+    return 0;
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+<img width="806" height="362" alt="image" src="https://github.com/user-attachments/assets/44aed072-ab7d-4928-b846-555c072a7ade" />
+
 
 
 
@@ -47,7 +73,26 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+int main() {
+    char str[1000];
+    int freq[10] = {0};
+
+    scanf("%s", str);
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] >= '0' && str[i] <= '9')
+            freq[str[i] - '0']++;
+    }
+
+    for (int i = 0; i < 10; i++)
+        printf("%d ", freq[i]);
+
+    return 0;
+}
+```
 
 
 
@@ -55,7 +100,8 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="825" height="222" alt="image" src="https://github.com/user-attachments/assets/f79b2e55-3a49-4ea3-8f70-d06e1de765b3" />
+
 
 
 
@@ -83,17 +129,64 @@ Free the memory allocated for each string in s Free the memory allocated for s
 7.	End
  
 Program:
+```
 
-//type your code here
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+void swap(char **a, char **b) {
+    char *temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
+int next_permutation(char *arr[], int n) {
+    int i = n - 2;
+    while (i >= 0 && strcmp(arr[i], arr[i + 1]) >= 0)
+        i--;
+    if (i < 0)
+        return 0;
+    int j = n - 1;
+    while (strcmp(arr[i], arr[j]) >= 0)
+        j--;
+    swap(&arr[i], &arr[j]);
+    for (int l = i + 1, r = n - 1; l < r; l++, r--)
+        swap(&arr[l], &arr[r]);
+    return 1;
+}
+
+int compare(const void *a, const void *b) {
+    return strcmp(*(const char **)a, *(const char **)b);
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    char **arr = (char **)malloc(n * sizeof(char *));
+    for (int i = 0; i < n; i++) {
+        arr[i] = (char *)malloc(101 * sizeof(char)); 
+        scanf("%s", arr[i]);
+    }
+        qsort(arr, n, sizeof(char *), compare);
+    
+    do {
+        for (int i = 0; i < n; i++)
+            printf("%s%c", arr[i], i == n - 1 ? '\n' : ' ');
+    } while (next_permutation(arr, n));
+    for (int i = 0; i < n; i++)
+        free(arr[i]);
+    free(arr);
+    
+    return 0;
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
-
+<img width="691" height="542" alt="image" src="https://github.com/user-attachments/assets/9058b995-73dd-4c35-998d-17361de253c0" />
 
 
 
@@ -116,8 +209,30 @@ Algorithm:
 7.	End
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+void printPattern(int n) {
+    int size = 2 * n - 1;
+    for (int i = 0; i < size; i++) 
+    {
+
+        for (int j = 0; j < size; j++) 
+        {
+            int value = n - (i < j ? (i < size - j - 1 ? i : size - j - 1) : (j < size - i - 1 ? j : size - i - 1));
+            printf("%d ", value);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printPattern(n);
+    return 0;
+}
+```
 
 
 
@@ -125,7 +240,8 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="805" height="707" alt="image" src="https://github.com/user-attachments/assets/88b68385-5820-4387-b6ef-2a766d9af6b0" />
+
 
 
 
@@ -156,15 +272,28 @@ o	Call the square() function and display the result.
 
 Program:
 
-//type your code here
-
+```
+#include <stdio.h>
+void square();
+int main(){
+    square();
+    return 0;
+}
+void square(){
+    int a;
+    scanf("%d",&a);
+    float ans = a*a;
+    printf("The square of %d is : %.2f",a,ans);
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+<img width="831" height="262" alt="image" src="https://github.com/user-attachments/assets/c8090062-6611-43e6-a9e0-e0996142269b" />
+
 
 
 
